@@ -10,13 +10,11 @@ int main() {
 
   //merge sort the array of boundaries 0 ->8 inclusive
    Merge_Sort(arr, 0, 8);
-  
 
   //printing the array
   for(auto x : arr)
     std::cout<<x<<std::endl;
 }
-
 
 
 void Merge_Sort(int array[], int left, int  right)
@@ -37,14 +35,13 @@ void Merge_Sort(int array[], int left, int  right)
     Merge(array,p,left,right);
 
   }
-
 }
 
 void Merge(int array[], int p,int left, int  right)
 {
   
-  //init new arrays to have the left and right side
-  // we add an extra sentile element to each array (infinity) at line 75 
+  // initialise new arrays to have the left and right side.
+  // we add an extra sentile element to each array (infinity) at line 64 65.
   int L[p - left + 1 + 1]; 
   int R[right-p+1];
 
@@ -55,19 +52,17 @@ void Merge(int array[], int p,int left, int  right)
 
   //getting elemetns from oringal array to each array
   for(int i =0;i<=n1;i++)
-  {
-    L[i] = array[left+i];
-  }
+  
+       { L[i] = array[left+i]; }
+  
   
   //same here.
   for(int j =0; j<n2 ;j++)
-  {
-    R[j]= array[p +1 + j];      
-  }
-
   
-  L[n1+1] = 1000000; //the extra sentile element at the end
-  R[n2] = 1000000;
+    { R[j]= array[p +1 + j]; }    
+  
+ L[n1+1] = 1000000; //the extra sentile element at the end
+ R[n2] = 1000000;
 
   //Merging the 2 arrays
   int i =0; int j = 0;
@@ -88,12 +83,4 @@ void Merge(int array[], int p,int left, int  right)
   // because we add an extra element at the end, we don't need to check if the L, R arrays are empty. 
   
   }
-
-
-  
-  
-
-
-
-  
 }
