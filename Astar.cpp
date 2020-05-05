@@ -1,3 +1,10 @@
+/*read a maze from a file called board where every 0 represent a valid path, and an obstacle otherwise.
+an example of a maze is the following.
+0,0,0,0,0
+1,0,0,1,0
+1,1,0,0,0
+the start is always top left, and the finish is always bottom left.
+*/
 #include <algorithm> // for sort
 #include <fstream>
 #include <iostream>
@@ -12,7 +19,7 @@ using std::sort;
 using std::string;
 using std::vector;
 
-// TODO: Add kStart and kFinish enumerators to the State enum.
+
 enum class State { kEmpty, kObstacle, kClosed, kPath, kStart, kFinish };
 
 // directional deltas
@@ -113,9 +120,7 @@ void ExpandNeighbors(const vector<int> &current, int goal[2],
   }
 }
 
-/**
- * Implementation of A* search algorithm
- */
+
 vector<vector<State>> Search(vector<vector<State>> grid, int init[2],
                              int goal[2]) {
   // Create the vector of open nodes.
@@ -140,7 +145,7 @@ vector<vector<State>> Search(vector<vector<State>> grid, int init[2],
 
     // Check if we're done.
     if (x == goal[0] && y == goal[1]) {
-      // TODO: Set the init grid cell to kStart, and
+      
       // set the goal grid cell to kFinish before returning the grid.
       int x_init = init[0];
       int y_init = init[1];
@@ -185,7 +190,7 @@ void PrintBoard(const vector<vector<State>> board) {
   }
 }
 
-#include "test.cpp"
+
 
 int main() {
   int init[2]{0, 0};
@@ -193,11 +198,4 @@ int main() {
   auto board = ReadBoardFile("1.board");
   auto solution = Search(board, init, goal);
   PrintBoard(solution);
-  // Tests
-  TestHeuristic();
-  TestAddToOpen();
-  TestCompare();
-  TestSearch();
-  TestCheckValidCell();
-  TestExpandNeighbors();
 }
