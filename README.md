@@ -1,7 +1,6 @@
 # Algorithms
 
-#This file contains my own implementation of multiple known Algorithms in Cpp, and being updated regularly
-currently it has the following Algorithms.
+### some of the common algorithms implemented in C++
 
 
 # Merge Sort, Insertion Sort, Bubble Sort, Binary Search.
